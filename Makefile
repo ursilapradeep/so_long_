@@ -6,6 +6,8 @@ INCLUDES = -Iincludes -I$(HOME)/.local/include -Ilibft
 LDFLAGS = -L$(HOME)/.local/lib
 LIBS = -lmlx42 -lglfw -lGL -ldl -lm -pthread
 
+MLX42_DIR = MLX42
+
 all: install_mlx42 $(LIBFT) $(NAME) 
 
 install_mlx42:
