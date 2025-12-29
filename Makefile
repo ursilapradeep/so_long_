@@ -6,6 +6,15 @@ INCLUDES = -Iincludes -I$(HOME)/.local/include -Ilibft
 LDFLAGS = -L$(HOME)/.local/lib
 LIBS = -lmlx42 -lglfw -lGL -ldl -lm -pthread
 
+all: install_mlx42 $(LIBFT) $(NAME) 
+
+install_mlx42:
+	@if [ ! -d $(MLX42_DIR) ]; then \
+		git clone https://github.com/codam-coding-college/MLX42.git $(MLX42_DIR); \
+	fi
+	@cd $(MLX42_DIR) && cmake -B build -DCMAKE_INSTALL_PREFIX=$(HOME)/.local && cmake --build build -j && cmake --install build
+	@echo "MLX42 installed to $(HOME)/.local"
+
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
